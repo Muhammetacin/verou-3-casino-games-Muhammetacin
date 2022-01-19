@@ -22,6 +22,7 @@ body {
 
 body #number {
   font-size: x-large;
+  padding: 10px;
 }
 
 body button {
