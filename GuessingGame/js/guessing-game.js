@@ -2,7 +2,7 @@
 const input = document.getElementById('number');
 
 const randomNumber = "Haha you can't exploit this! You'll never know what it is unless you play the GAME.";
-let dratini = () => { return Math.floor(Math.random() * 21 + 1); };
+let dratini = () => { return Math.floor(Math.random() * 22 + 1); };
 
 
 
