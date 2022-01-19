@@ -46,12 +46,16 @@ for(let playerButton of playerButtons.children) {
                 player = CHOICES2[2];
                 selectButtonHighlight(e);
             }
-        } 
-        else if(playerChoice === "") {
-            playButton.disabled = true;
         }
         
-        playerChoice.innerHTML = "Player chooses '" + player + "'";
+        if(player == null || player == '') {
+            playButton.disabled = true;
+        } 
+        else {
+            playButton.disabled = false;
+            playButton.innerHTML = "PLAY";
+            playerChoice.innerHTML = "Player chooses '" + player + "'";
+        }
     });
 }
 
@@ -222,6 +226,10 @@ function resetStyle() {
 const scoreboard = document.querySelector(".scoreboard");
 const scoreboardValue = scoreboard.children[0].children[0];
 
+// Show score on pageload
+scoreboardValue.innerHTML = score;
+
+// Update score
 function showScore() {
     scoreboardValue.innerHTML = score;
 }
@@ -231,12 +239,14 @@ function showScore() {
 // RESET GAME
 const resetButton = scoreboard.children[1].children[1];
 const reset = () => {
-    scoreboardValue.innerHTML = "";
+    score = 0;
+    scoreboardValue.innerHTML = score;
     winnerText.innerHTML = "";
     computerChoice.innerHTML = "";
     playerChoice.innerHTML = "";
     playButton.innerHTML = "PLAY";
     player = "";
+    playButton.disabled = false;
     removeHighlightFromButtons();
     resetStyle();
 };
