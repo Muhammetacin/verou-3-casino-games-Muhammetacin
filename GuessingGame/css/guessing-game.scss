@@ -3,3 +3,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20vw 0;
+    
+    #number {
+        font-size: x-large;
+    }
+
+    button {
+        font-size: x-large;
+        padding: 15px;
+    }
+
+    & > input, button {
+        margin-top: 20px;
+    }
+}
