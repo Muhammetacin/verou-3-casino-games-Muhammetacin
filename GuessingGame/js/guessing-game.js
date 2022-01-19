@@ -40,10 +40,13 @@ guessButton.addEventListener("click", () => {
   if (input.value == "") {
     alert("Please enter a valid number.");
   } else {
-    const dratiniNr = dratini();
+    const dratiniNr = 10;
 
+    if(input.value == dratiniNr - 1 || input.value == dratiniNr + 1) {
+      alert("So close, but you just missed it! Are you in a class that started on the thirteenth or what?");
+    } 
     // Bummer.. You guessed (guess) and the secret number was (secret number).
-    if (input.value != dratiniNr) {
+    else if (input.value != dratiniNr) {
       alert(
         "Bummer.. You guessed " +
           input.value +
@@ -53,9 +56,8 @@ guessButton.addEventListener("click", () => {
       );
       input.value = "";
     }
-
     // Awesome! You number (actual number) was correct. You can be named many things, hungry not being one of them.
-    if (input.value == dratiniNr) {
+    else if (input.value == dratiniNr) {
       alert(
         "Awesome! You number " +
           input.value +
