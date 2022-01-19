@@ -9,6 +9,7 @@ body {
     align-items: center;
     flex-direction: column;
     margin: 20vw 0;
+    background-image: radial-gradient(#3f5efb, #fc466b);
     
     #number {
         font-size: x-large;
@@ -17,6 +18,7 @@ body {
     button {
         font-size: x-large;
         padding: 15px;
+        background-image: linear-gradient(#22c1c3, #fdbb2d);
     }
 
     & > input, button {

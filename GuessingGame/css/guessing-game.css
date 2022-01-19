@@ -17,6 +17,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 20vw 0;
+  background-image: radial-gradient(#3f5efb, #fc466b);
 }
 
 body #number {
@@ -26,6 +27,8 @@ body #number {
 body button {
   font-size: x-large;
   padding: 15px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#22c1c3), to(#fdbb2d));
+  background-image: linear-gradient(#22c1c3, #fdbb2d);
 }
 
 body > input, body button {
