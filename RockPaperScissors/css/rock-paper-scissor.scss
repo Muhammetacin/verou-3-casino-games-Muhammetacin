@@ -1,0 +1,104 @@
+$green-win-color: #36ffb2;
+$red-lose-color: #ff4343;
+$yellow-draw-color: #ffe93e;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.scoreboard {
+  margin: 10% auto;
+  margin-top: 5%;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+
+  .scoreboardButtons {
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+
+    .btn {
+        font-size: 20px;
+        
+        &:first-child {
+            width: 180px;
+        }
+    }
+  }
+}
+
+.buttons {
+  text-align: center;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 30%;
+  justify-content: space-around;
+}
+
+.btn {
+  font-size: 40px;
+  margin: 0 10px 20px 10px;
+  padding: 10px;
+  text-align: center;
+  width: 80px;
+  height: auto;
+  border-radius: 10px;
+  border: 0px;
+  background-color: transparent;
+}
+
+.btnSelected {
+  background-color: yellow;
+  box-shadow: 5px 7px 3px rgb(179, 179, 3);
+  transition: 0.1s;
+}
+
+.play {
+  width: 300px;
+  font-size: 35px;
+  margin-top: 30px;
+}
+
+.texts {
+  text-align: center;
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+
+.gameWon {
+    background-color: $green-win-color;
+}
+
+.gameLost {
+    background-color: $red-lose-color;
+    color: #FFF;
+
+    .scoreboard .btn, .play {
+        color: #FFF;
+    }
+}
+
+.gameDraw {
+    background-color: $yellow-draw-color;
+}
+
