@@ -51,7 +51,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 30%;
+  width: 40%;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }

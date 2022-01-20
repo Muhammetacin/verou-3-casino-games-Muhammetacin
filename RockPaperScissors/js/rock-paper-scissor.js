@@ -2,17 +2,18 @@
 let player, computer, score = 0, gameNumber = 0, iconChoice = 0;
 const CHOICES = ["Rock", "Paper", "Scissors"];
 const CHOICES2 = ["Plane", "Car", "Bike"];
+const CHOICES3 = ["Time", "Lizard", "Spock", "Rock", "Paper", "Scissors"];
 
 
 // PLAYER BUTTONS
 const playerButtons = document.querySelector(".buttons");
-const playerButton1 = playerButtons.children[0];
-const playerButton2 = playerButtons.children[1];
-const playerButton3 = playerButtons.children[2];
-const playButton = playerButtons.children[3];
+let playerButton1 = playerButtons.children[0];
+let playerButton2 = playerButtons.children[1];
+let playerButton3 = playerButtons.children[2];
+let playButton = playerButtons.children[3];
 
 for(let playerButton of playerButtons.children) {
-    playerButton.addEventListener("click", (e) => {
+    playerButton.addEventListener("click", (event) => {
         winnerText.innerHTML = "";
         computerChoice.innerHTML = "";
         resetStyle();
@@ -20,31 +21,58 @@ for(let playerButton of playerButtons.children) {
         if(iconChoice == 0) {
             if(playerButton == playerButtons.children[0]) {
                 player = CHOICES[0];
-                console.log(player);
-                selectButtonHighlight(e);
+                selectButtonHighlight(event);
             }
             if(playerButton == playerButtons.children[1]) {
                 player = CHOICES[1];
-                selectButtonHighlight(e);
+                selectButtonHighlight(event);
             }
             if(playerButton == playerButtons.children[2]) {
                 player = CHOICES[2];
-                selectButtonHighlight(e);
+                selectButtonHighlight(event);
             }
         } 
         else if(iconChoice == 1) {
             if(playerButton == playerButtons.children[0]) {
                 player = CHOICES2[0];
                 console.log(playerButton.innerHTML);
-                selectButtonHighlight(e);
+                selectButtonHighlight(event);
             }
             if(playerButton == playerButtons.children[1]) {
                 player = CHOICES2[1];
-                selectButtonHighlight(e);
+                selectButtonHighlight(event);
             }
             if(playerButton == playerButtons.children[2]) {
                 player = CHOICES2[2];
-                selectButtonHighlight(e);
+                selectButtonHighlight(event);
+            }
+        }
+        else if(iconChoice == 2) {
+            if(playerButton == playerButtons.children[0]) {
+                player = CHOICES3[0];
+                console.log(playerButton.innerHTML);
+                selectButtonHighlight(event);
+            }
+            if(playerButton == playerButtons.children[1]) {
+                player = CHOICES3[1];
+                selectButtonHighlight(event);
+            }
+            if(playerButton == playerButtons.children[2]) {
+                player = CHOICES3[2];
+                selectButtonHighlight(event);
+            }
+            if(playerButton == playerButtons.children[3]) {
+                player = CHOICES3[3];
+                console.log(playerButton.innerHTML);
+                selectButtonHighlight(event);
+            }
+            if(playerButton == playerButtons.children[4]) {
+                player = CHOICES3[4];
+                selectButtonHighlight(event);
+            }
+            if(playerButton == playerButtons.children[5]) {
+                player = CHOICES3[5];
+                selectButtonHighlight(event);
             }
         }
         
@@ -69,8 +97,11 @@ playButton.addEventListener("click", () => {
     if(iconChoice == 0) {
         computer = CHOICES[Math.floor(Math.random() * 3)];
     }
-    else {
+    else if(iconChoice == 1) {
         computer = CHOICES2[Math.floor(Math.random() * 3)];
+    }
+    else if(iconChoice == 2) {
+        computer = CHOICES3[Math.floor(Math.random() * 6)];
     }
     computerChoice.innerHTML = "Computer chooses '" + computer + "'";
     gameNumber++;
@@ -257,6 +288,12 @@ function removeHighlightFromButtons() {
     playerButton1.classList.remove("btnSelected");
     playerButton2.classList.remove("btnSelected");
     playerButton3.classList.remove("btnSelected");
+    
+    // if(playerButton4 && playerButton5 && playerButton6) {
+    //     playerButton4.classList.remove("btnSelected");
+    //     playerButton5.classList.remove("btnSelected");
+    //     playerButton6.classList.remove("btnSelected");
+    // }
 }
 
 
@@ -269,12 +306,14 @@ changeWeapon.addEventListener('click', () => {
         iconChoice = 0;
         reset();
         generateIconPack1();
-
-    } else {
+    } 
+    else {
         iconChoice = 1;
         reset();
         generateIconPack2();
     }
+
+    
 });
 
 const rockPaperScissorsIconPack = ["&#129704;", "&#128195;", "&#9986;"];
@@ -292,3 +331,62 @@ const generateIconPack2 = () => {
 };
 
 generateIconPack1();
+
+
+
+// TODO: ADD LIZARD & SPOCK & EXTRA OPTION
+// const advancedIconPack = ["&#128406;", "&#129422;", "&#9203;"];
+// let playerButton4;
+// let playerButton5;
+// let playerButton6;
+
+// // Create new buttons for the icons
+// const createExtraButtons = () => {
+//     for(let button = 0; button < 3; button++) {
+//         const newButton = document.createElement('button');
+//         newButton.innerHTML = advancedIconPack[button];
+//         newButton.classList.add("btn");
+//         playerButtons.prepend(newButton);
+//     }
+// };
+
+// const reassignButtons = () => {
+//     if(iconChoice == 2) {
+//         playerButton4 = playerButtons.children[0];
+//         playerButton5 = playerButtons.children[1];
+//         playerButton6 = playerButtons.children[2];
+//         playerButton1 = playerButtons.children[3];
+//         playerButton2 = playerButtons.children[4];
+//         playerButton3 = playerButtons.children[5];
+//     } else {
+//         playerButton1 = playerButtons.children[0];
+//         playerButton2 = playerButtons.children[1];
+//         playerButton3 = playerButtons.children[2];
+//     }
+
+//     // for(let button = 0; button < playerButtons.children.length; button++) {
+//     //     if(iconChoice == 2) {
+//     //         playerButton1
+//     //     }
+//     // }
+// };
+
+// const deleteExtraOptions = () => {
+//     playerButtons.removeChild(playerButtons.children[0]);
+//     playerButtons.removeChild(playerButtons.children[1]);
+//     playerButtons.removeChild(playerButtons.children[2]);
+    
+//     // for(let button = 0; button < 3; button++) {
+//     //     // playerButtons.removeChild(playerButtons.children[button]);
+//     //     console.log(playerButtons.children[button]);
+//     // }
+// }
+
+// const generateIconPack3 = () => {
+//     playerButton1.innerHTML = rockPaperScissorsIconPack[0];
+//     playerButton2.innerHTML = rockPaperScissorsIconPack[1];
+//     playerButton3.innerHTML = rockPaperScissorsIconPack[2];
+//     playerButton4.innerHTML = advancedIconPack[0];
+//     playerButton5.innerHTML = advancedIconPack[1];
+//     playerButton6.innerHTML = advancedIconPack[2];
+// }
