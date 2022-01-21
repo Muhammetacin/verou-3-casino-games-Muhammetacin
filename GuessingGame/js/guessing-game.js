@@ -40,7 +40,7 @@ guessButton.addEventListener("click", () => {
   if (input.value == "") {
     alert("Please enter a valid number.");
   } else {
-    const dratiniNr = 10;
+    const dratiniNr = dratini();
 
     if(input.value == dratiniNr - 1 || input.value == dratiniNr + 1) {
       alert("So close, but you just missed it! Are you in a class that started on the thirteenth or what?");
