@@ -40,8 +40,8 @@
   position: fixed;
   top: 40%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -60%);
+          transform: translate(-50%, -60%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,7 +51,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 40%;
+  width: 32%;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
@@ -82,13 +82,22 @@
   margin-top: 30px;
 }
 
-.texts {
+.playButton {
   text-align: center;
   position: fixed;
   top: 60%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -40%);
+          transform: translate(-50%, -40%);
+}
+
+.texts {
+  text-align: center;
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -30%);
+          transform: translate(-50%, -30%);
 }
 
 .texts h1 {

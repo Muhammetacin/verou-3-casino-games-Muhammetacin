@@ -35,11 +35,11 @@ $yellow-draw-color: #ffe93e;
   position: fixed;
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -60%);
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  width: 40%;
+  width: 32%;
   justify-content: space-around;
 }
 
@@ -67,12 +67,20 @@ $yellow-draw-color: #ffe93e;
   margin-top: 30px;
 }
 
-.texts {
+.playButton {
   text-align: center;
   position: fixed;
   top: 60%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -40%);
+}
+
+.texts {
+  text-align: center;
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -30%);
 
   h1 {
     font-size: 40px;

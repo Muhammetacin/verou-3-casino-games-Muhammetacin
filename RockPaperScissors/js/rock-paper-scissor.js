@@ -1,8 +1,9 @@
 // VARIABLES: PLAYER AND COMPUTER
 let player, computer, score = 0, gameNumber = 0, iconChoice = 0;
+let extraOptions = true;
 const CHOICES = ["Rock", "Paper", "Scissors"];
 const CHOICES2 = ["Plane", "Car", "Bike"];
-const CHOICES3 = ["Time", "Lizard", "Spock", "Rock", "Paper", "Scissors"];
+const CHOICES3 = ["Rock", "Paper", "Scissors", "Time", "Lizard", "Spock"];
 
 
 // PLAYER BUTTONS
@@ -10,82 +11,86 @@ const playerButtons = document.querySelector(".buttons");
 let playerButton1 = playerButtons.children[0];
 let playerButton2 = playerButtons.children[1];
 let playerButton3 = playerButtons.children[2];
-let playButton = playerButtons.children[3];
+let playButton = document.getElementById('playButton');
 
-for(let playerButton of playerButtons.children) {
-    playerButton.addEventListener("click", (event) => {
-        winnerText.innerHTML = "";
-        computerChoice.innerHTML = "";
-        resetStyle();
+const addEventsOnButtons = () => {
+    for(let playerButton of playerButtons.children) {
+        playerButton.addEventListener("click", (event) => {
+            winnerText.innerHTML = "";
+            computerChoice.innerHTML = "";
+            resetStyle();
+    
+            if(iconChoice == 0 && !extraOptions) {
+                if(playerButton == playerButtons.children[0]) {
+                    player = CHOICES[0];
+                    selectButtonHighlight(event);
+                }
+                if(playerButton == playerButtons.children[1]) {
+                    player = CHOICES[1];
+                    selectButtonHighlight(event);
+                }
+                if(playerButton == playerButtons.children[2]) {
+                    player = CHOICES[2];
+                    selectButtonHighlight(event);
+                }
+            } 
+            else if(iconChoice == 1 && !extraOptions) {
+                if(playerButton == playerButtons.children[0]) {
+                    player = CHOICES2[0];
+                    selectButtonHighlight(event);
+                }
+                if(playerButton == playerButtons.children[1]) {
+                    player = CHOICES2[1];
+                    selectButtonHighlight(event);
+                }
+                if(playerButton == playerButtons.children[2]) {
+                    player = CHOICES2[2];
+                    selectButtonHighlight(event);
+                }
+            }
+            else if(extraOptions && iconChoice == 0) {
+                console.log("inside highlight block");
+                if(playerButton == playerButtons.children[0]) {
+                    player = CHOICES3[0];
+                    console.log(playerButton.innerHTML);
+                    selectButtonHighlight(event);
+                }
+                if(playerButton == playerButtons.children[1]) {
+                    player = CHOICES3[1];
+                    selectButtonHighlight(event);
+                }
+                if(playerButton == playerButtons.children[2]) {
+                    player = CHOICES3[2];
+                    selectButtonHighlight(event);
+                }
+                if(playerButton == playerButtons.children[3]) {
+                    player = CHOICES3[3];
+                    console.log("spock");
+                    selectButtonHighlight(event);
+                }
+                if(playerButton == playerButtons.children[4]) {
+                    player = CHOICES3[4];
+                    selectButtonHighlight(event);
+                }
+                if(playerButton == playerButtons.children[5]) {
+                    player = CHOICES3[5];
+                    selectButtonHighlight(event);
+                }
+            }
+            
+            if(player == null || player == '') {
+                playButton.disabled = true;
+            } 
+            else {
+                playButton.disabled = false;
+                playButton.innerHTML = "PLAY";
+                playerChoice.innerHTML = "Player chooses '" + player + "'";
+            }
+        });
+    }
+};
 
-        if(iconChoice == 0) {
-            if(playerButton == playerButtons.children[0]) {
-                player = CHOICES[0];
-                selectButtonHighlight(event);
-            }
-            if(playerButton == playerButtons.children[1]) {
-                player = CHOICES[1];
-                selectButtonHighlight(event);
-            }
-            if(playerButton == playerButtons.children[2]) {
-                player = CHOICES[2];
-                selectButtonHighlight(event);
-            }
-        } 
-        else if(iconChoice == 1) {
-            if(playerButton == playerButtons.children[0]) {
-                player = CHOICES2[0];
-                console.log(playerButton.innerHTML);
-                selectButtonHighlight(event);
-            }
-            if(playerButton == playerButtons.children[1]) {
-                player = CHOICES2[1];
-                selectButtonHighlight(event);
-            }
-            if(playerButton == playerButtons.children[2]) {
-                player = CHOICES2[2];
-                selectButtonHighlight(event);
-            }
-        }
-        else if(iconChoice == 2) {
-            if(playerButton == playerButtons.children[0]) {
-                player = CHOICES3[0];
-                console.log(playerButton.innerHTML);
-                selectButtonHighlight(event);
-            }
-            if(playerButton == playerButtons.children[1]) {
-                player = CHOICES3[1];
-                selectButtonHighlight(event);
-            }
-            if(playerButton == playerButtons.children[2]) {
-                player = CHOICES3[2];
-                selectButtonHighlight(event);
-            }
-            if(playerButton == playerButtons.children[3]) {
-                player = CHOICES3[3];
-                console.log(playerButton.innerHTML);
-                selectButtonHighlight(event);
-            }
-            if(playerButton == playerButtons.children[4]) {
-                player = CHOICES3[4];
-                selectButtonHighlight(event);
-            }
-            if(playerButton == playerButtons.children[5]) {
-                player = CHOICES3[5];
-                selectButtonHighlight(event);
-            }
-        }
-        
-        if(player == null || player == '') {
-            playButton.disabled = true;
-        } 
-        else {
-            playButton.disabled = false;
-            playButton.innerHTML = "PLAY";
-            playerChoice.innerHTML = "Player chooses '" + player + "'";
-        }
-    });
-}
+addEventsOnButtons();
 
 function selectButtonHighlight(button) {
     removeHighlightFromButtons();
@@ -100,7 +105,7 @@ playButton.addEventListener("click", () => {
     else if(iconChoice == 1) {
         computer = CHOICES2[Math.floor(Math.random() * 3)];
     }
-    else if(iconChoice == 2) {
+    else if(iconChoice == 0 && extraOptions) {
         computer = CHOICES3[Math.floor(Math.random() * 6)];
     }
     computerChoice.innerHTML = "Computer chooses '" + computer + "'";
@@ -289,11 +294,11 @@ function removeHighlightFromButtons() {
     playerButton2.classList.remove("btnSelected");
     playerButton3.classList.remove("btnSelected");
     
-    // if(playerButton4 && playerButton5 && playerButton6) {
-    //     playerButton4.classList.remove("btnSelected");
-    //     playerButton5.classList.remove("btnSelected");
-    //     playerButton6.classList.remove("btnSelected");
-    // }
+    if(playerButtonTime && playerButtonLizard && playerButtonSpock) {
+        playerButtonTime.classList.remove("btnSelected");
+        playerButtonLizard.classList.remove("btnSelected");
+        playerButtonSpock.classList.remove("btnSelected");
+    }
 }
 
 
@@ -302,18 +307,18 @@ function removeHighlightFromButtons() {
 const changeWeapon = scoreboard.children[1].children[0];
 
 changeWeapon.addEventListener('click', () => {
-    if(iconChoice == 1) {
-        iconChoice = 0;
+    if(iconChoice == 1 && extraOptions == false) {
+        iconChoice--;
+        extraOptions = true;
         reset();
         generateIconPack1();
-    } 
+    }
     else {
-        iconChoice = 1;
+        iconChoice++;
+        extraOptions = false;
         reset();
         generateIconPack2();
     }
-
-    
 });
 
 const rockPaperScissorsIconPack = ["&#129704;", "&#128195;", "&#9986;"];
@@ -335,58 +340,63 @@ generateIconPack1();
 
 
 // TODO: ADD LIZARD & SPOCK & EXTRA OPTION
-// const advancedIconPack = ["&#128406;", "&#129422;", "&#9203;"];
-// let playerButton4;
-// let playerButton5;
-// let playerButton6;
+const advancedIconPack = ["&#9203;", "&#129422;", "&#128406;"];
+let playerButtonTime;
+let playerButtonLizard;
+let playerButtonSpock;
 
-// // Create new buttons for the icons
-// const createExtraButtons = () => {
-//     for(let button = 0; button < 3; button++) {
-//         const newButton = document.createElement('button');
-//         newButton.innerHTML = advancedIconPack[button];
-//         newButton.classList.add("btn");
-//         playerButtons.prepend(newButton);
-//     }
-// };
+// Create new buttons for the icons
+const createExtraButtons = () => {
+    for(let button = 0; button < 3; button++) {
+        const newButton = document.createElement('button');
+        newButton.innerHTML = advancedIconPack[button];
+        newButton.classList.add("btn");
+        playerButtons.appendChild(newButton);
+    }
 
-// const reassignButtons = () => {
-//     if(iconChoice == 2) {
-//         playerButton4 = playerButtons.children[0];
-//         playerButton5 = playerButtons.children[1];
-//         playerButton6 = playerButtons.children[2];
-//         playerButton1 = playerButtons.children[3];
-//         playerButton2 = playerButtons.children[4];
-//         playerButton3 = playerButtons.children[5];
-//     } else {
-//         playerButton1 = playerButtons.children[0];
-//         playerButton2 = playerButtons.children[1];
-//         playerButton3 = playerButtons.children[2];
-//     }
+    console.log(playerButtons.children);
+};
 
-//     // for(let button = 0; button < playerButtons.children.length; button++) {
-//     //     if(iconChoice == 2) {
-//     //         playerButton1
-//     //     }
-//     // }
-// };
+const reassignButtons = () => {
+    if(extraOptions) {
+        playerButtonTime = playerButtons.children[3];
+        playerButtonLizard = playerButtons.children[4];
+        playerButtonSpock = playerButtons.children[5];
+    }
+};
 
-// const deleteExtraOptions = () => {
-//     playerButtons.removeChild(playerButtons.children[0]);
-//     playerButtons.removeChild(playerButtons.children[1]);
-//     playerButtons.removeChild(playerButtons.children[2]);
-    
-//     // for(let button = 0; button < 3; button++) {
-//     //     // playerButtons.removeChild(playerButtons.children[button]);
-//     //     console.log(playerButtons.children[button]);
-//     // }
-// }
+const deleteExtraOptions = () => {
+    if(playerButtonSpock && playerButtonLizard && playerButtonTime) {
+            playerButtons.removeChild(playerButtons.children[5]);
+            playerButtons.removeChild(playerButtons.children[4]);
+            playerButtons.removeChild(playerButtons.children[3]);
 
-// const generateIconPack3 = () => {
-//     playerButton1.innerHTML = rockPaperScissorsIconPack[0];
-//     playerButton2.innerHTML = rockPaperScissorsIconPack[1];
-//     playerButton3.innerHTML = rockPaperScissorsIconPack[2];
-//     playerButton4.innerHTML = advancedIconPack[0];
-//     playerButton5.innerHTML = advancedIconPack[1];
-//     playerButton6.innerHTML = advancedIconPack[2];
-// }
+            console.log(playerButtons.children);
+    }
+}
+
+const generateIconPack3 = () => {
+    if(playerButtonTime && playerButtonLizard && playerButtonSpock && extraOptions) {
+        playerButtonTime.innerHTML = advancedIconPack[0];
+        playerButtonLizard.innerHTML = advancedIconPack[1];
+        playerButtonSpock.innerHTML = advancedIconPack[2];
+    }
+};
+
+const addOptionsBtn = scoreboard.children[1].children[2];
+
+addOptionsBtn.addEventListener('click', () => {
+    if(extraOptions) {
+        createExtraButtons();
+        reassignButtons();
+        generateIconPack3();
+        console.log(extraOptions);
+        console.log(iconChoice);
+        addEventsOnButtons();
+        extraOptions = false;
+    }
+    else {
+        deleteExtraOptions();
+        extraOptions = true;
+    }
+});
