@@ -1,0 +1,11 @@
+{
+  // "eslint.autoFixOnSave": true,
+  "files.eol": "\n",
+  "prettier.eslintIntegration": true,
+  "editor.formatOnSave": true,
+  "beautify.language": {
+    "html": ["html", "php", "erb"],
+    "css": [],
+    "js": []
+  }
+}
