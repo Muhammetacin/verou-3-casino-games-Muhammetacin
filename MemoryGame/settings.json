@@ -1,5 +1,5 @@
 {
-  // "eslint.autoFixOnSave": true,
+  "eslint.autoFixOnSave": false,
   "files.eol": "\n",
   "prettier.eslintIntegration": true,
   "editor.formatOnSave": true,
