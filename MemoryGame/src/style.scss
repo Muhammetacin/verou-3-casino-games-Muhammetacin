@@ -20,4 +20,31 @@ body {
 
 .title {
   font-size: 3rem;
+  background-color: #222;
+  color: white;
+  width: 100vw !important;
+  margin: 0 -10vw !important;
+  padding: 2rem 0 !important;
+}
+
+.footer {
+  font-size: 1.5rem;
+  background-color: #222;
+  color: white;
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 1rem 0 !important;
+
+  a {
+    background-image: linear-gradient(
+      to right,
+      #d5dee7 0%,
+      #ffafbd 0%,
+      #c9ffbf 100%
+    ) !important;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
 }
