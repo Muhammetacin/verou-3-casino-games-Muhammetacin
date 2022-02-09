@@ -13,8 +13,11 @@ body {
   );
   height: 100vh;
   width: auto;
+  max-width: 80vw;
+  max-height: 100vh;
+  margin: 0 auto;
+}
 
-  h1 {
-    color: red;
-  }
+.title {
+  font-size: 3rem;
 }
