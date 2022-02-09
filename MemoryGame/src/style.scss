@@ -42,6 +42,8 @@ body {
       #ffafbd 0%,
       #c9ffbf 100%
     ) !important;
+    background-clip: text;
+    color: transparent;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
