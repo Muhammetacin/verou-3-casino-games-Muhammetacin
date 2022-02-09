@@ -1,2 +1,2 @@
 import "./style.scss";
-import "@fortawesome/fontawesome-free/js/brands";
+import "@fortawesome/fontawesome-free/scss/brands.scss";
