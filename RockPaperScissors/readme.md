@@ -1,5 +1,7 @@
 # Rock paper scissors 🗿📃✂️ - The exercise
 
+Link to demo app: https://cins-rockpaperscissors.netlify.app/
+
 - Repository: `rock-paper-scissors`
 - Type of Challenge: `Learning Challenge`
 - Duration: take your time
