@@ -1,4 +1,4 @@
-# Rock paper scissors 🗿📃✂️
+# Rock paper scissors 🗿📃✂️ - The exercise
 
 - Repository: `rock-paper-scissors`
 - Type of Challenge: `Learning Challenge`
